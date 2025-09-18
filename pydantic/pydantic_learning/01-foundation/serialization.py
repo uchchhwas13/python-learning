@@ -15,7 +15,7 @@ class User(BaseModel):
     created_at: datetime
     address: Address
     tags: List[str] = []
-    
+
     model_config = ConfigDict(
         json_encoders={datetime: lambda v: v.strftime('%d-%m-%Y %H:%M:%S')}
     )
@@ -41,6 +41,6 @@ python_dict = user.model_dump()
 print(python_dict)
 
 print("\n\n=====================\n\n")
-#Using model_dump_json()
+#Using model_dump_json()-> json string
 json_str = user.model_dump_json()
 print("Json string:", json_str)
